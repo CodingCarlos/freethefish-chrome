@@ -1,0 +1,27 @@
+.baited {
+	background-color: red !important;
+}
+
+/*body {
+    background: red !important;
+}*/
+
+.cb-reporting {
+	background-color: yellow;
+}
+
+.cb-report {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 180px;
+	background-color: lightblue;
+}
+
+.cb-report__close {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	cursor: pointer;
+}
