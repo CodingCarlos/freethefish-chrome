@@ -2,17 +2,48 @@
 <html>
   <head>
     <style>
-      html, body {
-        height: 200px;
-        width: 350px;
-      }
+        html, body {
+            height: auto;
+            margin: 0px;
+        }
+        img {
+            max-width: 100%;
+        } 
+        button {
+            border: 1px solid #00AEE0;
+            border-radius: 8px;
+            min-height: 40px;
+            min-width: 240px;
+        }
+            button:hover {
+                background: #00AEE0;
+                color: white;
+            }
+        .section {
+            padding: 8px 24px;
+        }
     </style>
   </head>
-  <body>
-    <h1>Free the fish!</h1>
-    <p>Fuck clickbait. Just spoil it.</p>
-    <button id="test">Report clickbait</button>
+  
+   <body>
+        <img src="img/banner.png" />
+        <!-- <h1>Free the fish!</h1> -->
+        <div class="section">
+            <h2>Modo reporte</h2>
+            <p>Ayuda a la comunidad a evitar el clickbait pinchando en los articulos engañosos y añadiendo tu mism@ el contenido</p>
+            <button id="test">Activar modo reporte</button>
+        </div>
+        <div class="section">
+            <h2>Modo alerta</h2>
+            <p>Activa el modo alerta para que Free the fish te avise automaticamente del contenido de los articulos engañosos</p>
+            <button>Activar modo alerta</button>
+        </div>
+        <div class="section">
+            <h2>Comparte</h2>
+            <p>Twitter</p>
+            <p>Facebook</p>
+        </div>
 
-    <script type="text/javascript" src="popup.js"></script>
+        <script type="text/javascript" src="popup.js"></script>
   </body>
 </html>
