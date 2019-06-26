@@ -1,5 +1,5 @@
 const version = 5;
-const titleSelectors = 'h3, h2';
+const titleSelectors = 'article';
 console.log('Clicbait prevention enabled. v'+ version);
 
 window._cbStart = selectClickbaits
