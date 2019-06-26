@@ -1,8 +1,12 @@
-const version = 4;
+const version = 5;
 const titleSelectors = 'h3, h2';
 console.log('Clicbait prevention enabled. v'+ version);
 
 window._cbStart = selectClickbaits
+window.log = function(a) {
+	console.log('a');
+	console.log(a);
+}
 
 function selectClickbaits() {
     //You can play with your DOM here or check URL against your regex

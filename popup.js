@@ -1,13 +1,17 @@
 // 'use strict';
+// console.log('lolazo');
+
+window.onload = function() {
+    scripts();
+};
 
 document.getElementById("test").addEventListener('click', () => {
-    console.log("Popup DOM fully loaded and parsed");
+    // window.log("Popup DOM fully loaded and parsed");
+    scripts();
+});
 
-    function domScripts() {
-	    window._cbStart();
-    }
-
-    //We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
+function scripts() {
+    // We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
     chrome.tabs.executeScript({
         code: '(' + domScripts + ')();' //argument here is a string but function.toString() returns function's code
     }, (results) => {
@@ -15,4 +19,8 @@ document.getElementById("test").addEventListener('click', () => {
         console.log('Popup script:')
         console.log(results[0]);
     });
-});
+}
+
+function domScripts() {
+    window._cbStart();
+}
