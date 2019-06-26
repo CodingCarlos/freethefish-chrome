@@ -1,11 +1,12 @@
 const version = 4;
+const titleSelectors = 'h3, h2';
 console.log('Clicbait prevention enabled. v'+ version);
 
 window._cbStart = selectClickbaits
 
 function selectClickbaits() {
     //You can play with your DOM here or check URL against your regex
-    var titles = document.querySelectorAll('h3, h2')
+    var titles = document.querySelectorAll(titleSelectors)
 
     for (var i = 0; i < titles.length; i++) {
     	var title = titles[i];
@@ -20,7 +21,7 @@ function setSpoiler(event) {
 
 	reportDom(event.target);
 
-	var titles = document.querySelectorAll('h3');
+	var titles = document.querySelectorAll(titleSelectors);
     for (var i = 0; i < titles.length; i++) {
     	var title = titles[i];
 		removeClass(title, 'baited');
