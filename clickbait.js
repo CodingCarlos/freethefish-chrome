@@ -49,10 +49,10 @@ function reportDom(element) {
 	elem.style.cssText = 'top:'+ (offsetY + 32) +'px; left:'+ offsetX +'px;';
 	elem.className = 'cb-report';
 	elem.appendChild(close);
-	elem.innerHTML += '<h5>Reportar clickbait</h5>';
-	elem.innerHTML += '<p>También puedes añadir un spoiler</p>';
-	elem.innerHTML += '<textarea placeholder="(opcional) Añade un spoiler"></textarea><br>';
-	elem.innerHTML += '<button>REPORT!</button>';
+	elem.innerHTML += '<h2>Reportar clickbait</h2>';
+	elem.innerHTML += '<p>También puedes añadir el spoiler, si quieres</p>';
+	elem.innerHTML += '<textarea placeholder="Escribe aquí el spoiler"></textarea><br>';
+	elem.innerHTML += '<button>Reportar</button>';
 	
 	document.body.appendChild(elem);
 

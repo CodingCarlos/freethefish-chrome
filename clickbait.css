@@ -1,3 +1,7 @@
+p, h1, h2 {
+    line-height: 1.2rem;
+}
+
 .baited:hover {
 	/* background-color: red !important; */
     background: #D3E1E5;
@@ -7,12 +11,30 @@
     transition: all .2s ease-in-out;
 }
 
-/*body {
-    background: red !important;
-}*/
+img {
+    max-width: 100%;
+}
+
+button {
+    border-radius: 8px;
+    min-height: 40px;
+    min-width: 240px;
+    background: #01AEE0;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+    button:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 24px 0px;
+        cursor: pointer;
+    }
+
+.section {
+    padding: 8px 24px;
+}
 
 .cb-reporting {
-	background-color: yellow;
+	background-color: #AED8E4;
 }
 
 .cb-report {
@@ -21,12 +43,32 @@
 	left: 50%;
 	width: 300px;
 	height: 180px;
-	background-color: lightblue;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 16px 16px 31px;
+    box-shadow: 0px 4px 24px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+    height: auto;
 }
+    .cb-report h2 {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        padding-bottom: 0px;
+    }
 
 .cb-report__close {
 	position: absolute;
 	right: 16px;
 	top: 16px;
 	cursor: pointer;
+}
+
+textarea {
+    margin: 16px 0px;
+    width: 80%;
 }
