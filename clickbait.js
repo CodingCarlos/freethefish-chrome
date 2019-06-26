@@ -5,7 +5,7 @@ window._cbStart = selectClickbaits
 
 function selectClickbaits() {
     //You can play with your DOM here or check URL against your regex
-    var titles = document.querySelectorAll('h3')
+    var titles = document.querySelectorAll('h3, h2')
 
     for (var i = 0; i < titles.length; i++) {
     	var title = titles[i];
