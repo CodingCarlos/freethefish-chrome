@@ -70,6 +70,8 @@ function reportDom(element) {
 
 	document.getElementById('cb-report__close').addEventListener('click', closeReport);
 	document.getElementById('cb-report__send').addEventListener('click', sendReport);
+
+	draggable(elem);
 }
 
 function closeReport() {
@@ -80,7 +82,6 @@ function closeReport() {
 }
 
 function sendReport() {
-	
 	report.spoiler = document.getElementById('cb-report__textarea').value || null;
 
 	var miInit = {
@@ -117,4 +118,31 @@ function removeClass(el, className) {
 	  el.classList.remove(className);
 	else
 	  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+}
+
+
+// DRAGGABLE
+var initX, initY, firstX, firstY;
+
+function draggable(object) {
+	object.addEventListener('mousedown', function(e) {
+		e.preventDefault();
+
+		initX = this.offsetLeft;
+		initY = this.offsetTop;
+		firstX = e.pageX;
+		firstY = e.pageY;
+
+		this.addEventListener('mousemove', dragIt, false);
+
+		window.addEventListener('mouseup', function() {
+			object.removeEventListener('mousemove', dragIt, false);
+		}, false);
+
+	}, false);
+}
+
+function dragIt(e) {
+	this.style.left = initX+e.pageX-firstX + 'px';
+	this.style.top = initY+e.pageY-firstY + 'px';
 }
