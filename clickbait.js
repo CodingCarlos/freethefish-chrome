@@ -1,8 +1,9 @@
-const version = 5;
+// const version = 5;
+// console.log('Clicbait prevention enabled. v'+ version);
 const titleSelectors = 'article';
-console.log('Clicbait prevention enabled. v'+ version);
 
-window._cbStart = selectClickbaits
+// window._cbStart = selectClickbaits
+selectClickbaits();
 window.log = function(a) {
 	console.log('a');
 	console.log(a);
@@ -52,11 +53,12 @@ function reportDom(element) {
 	elem.innerHTML += '<h2>Reportar clickbait</h2>';
 	elem.innerHTML += '<p>También puedes añadir el spoiler, si quieres</p>';
 	elem.innerHTML += '<textarea placeholder="Escribe aquí el spoiler"></textarea><br>';
-	elem.innerHTML += '<button>Reportar</button>';
+	elem.innerHTML += '<button id="cb-report__send">Reportar</button>';
 	
 	document.body.appendChild(elem);
 
 	document.getElementById('cb-report__close').addEventListener('click', closeReport);
+	document.getElementById('cb-report__send').addEventListener('click', closeReport);
 }
 
 function closeReport() {
