@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+
 html {
     height: auto;
 }
 
-body {
+.fish-body {
     background: #f5f5f5;
     width: 320px;
 }
@@ -13,6 +15,7 @@ p, h1, h2 {
 
 h5 {
     margin: 6px 0px;
+    font-weight: bold;
 }
 
 *:focus, *:active {
@@ -74,18 +77,69 @@ button {
     border-radius: 8px;
     padding: 16px 16px 31px;
     box-shadow: 0px 4px 24px 8px rgba(0,0,0,0.1);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px 0px;
     z-index: 999;
     height: auto;
+    box-sizing: border-box;
+    border: 1px solid #eaeaea;
 }
-    .cb-report h2 {
+
+    .cb-report textarea {
+        padding: 8px;
+        margin: 8px 0px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .cb-report h5 {
         display: block;
         font-size: 1.5em;
-        margin-block-start: 0.83em;
-        margin-block-end: 0.83em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
+        margin-top: 8px;
+        margin-bottom: 4px;
         font-weight: bold;
-        padding-bottom: 0px;
+        font-family: "Roboto","Helvetica","Arial",sans-serif;
+    }
+
+    .cb-report p {
+        font-size: 1rem;
+        font-family: "Roboto","Helvetica","Arial",sans-serif;
+    }
+
+    .cb-report button {
+        background: 0 0;
+        border: none;
+        border-radius: 2px;
+        color: #fff;
+        position: relative;
+        height: 36px;
+        margin: 0;
+        min-width: 64px;
+        padding: 0 16px;
+        display: inline-block;
+        font-family: "Roboto","Helvetica","Arial",sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
+        overflow: hidden;
+        will-change: box-shadow;
+        transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+        outline: none;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        line-height: 36px;
+        vertical-align: middle;
+        background: #01AEE0;
+    }
+
+    .cb-report button:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 24px 8px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px 0px;
+    }
+
+    .cb-report img {
+        margin-top: -40px;
+        max-width: 72px;
     }
 
 .cb-report__close {

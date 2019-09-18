@@ -50,10 +50,11 @@ function reportDom(element) {
 	elem.style.cssText = 'top:'+ (offsetY + 32) +'px; left:'+ offsetX +'px;';
 	elem.className = 'cb-report';
 	elem.appendChild(close);
-	elem.innerHTML += '<h2>Reportar clickbait</h2>';
+	elem.innerHTML += '<img src="https://ph-files.imgix.net/c0fb6382-09b4-4f92-a279-6345227cc9e1?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=48&fit=max&dpr=2" />';
+	elem.innerHTML += '<h5>Reportar clickbait</h5>';
 	elem.innerHTML += '<p>También puedes añadir el spoiler, si quieres</p>';
 	elem.innerHTML += '<textarea placeholder="Escribe aquí el spoiler"></textarea><br>';
-	elem.innerHTML += '<button id="cb-report__send">Reportar</button>';
+	elem.innerHTML += '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="cb-report__send">Reportar</button>';
 	
 	document.body.appendChild(elem);
 
