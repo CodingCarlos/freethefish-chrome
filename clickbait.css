@@ -44,6 +44,7 @@ button {
 
 .section {
     border-radius: 8px;
+    border: 1px solid #eaeaea;
     margin: 0px 12px;
     margin-bottom: 8px;
     padding: 16px;
@@ -55,6 +56,7 @@ button {
 .no-bg {
     background: transparent;
     box-shadow: none;
+    border: none;
     padding: 8px;
 }
 
