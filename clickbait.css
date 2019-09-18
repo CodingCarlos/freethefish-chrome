@@ -7,6 +7,12 @@
     width: 320px;
 }
 
+.fish-body .section {
+    border-top: 1px solid #eaeaea;
+    margin-bottom: 8px;
+    padding: 16px;
+}
+
 .fish-body p, 
 .fish-body h1,
 .fish-body h2 {
