@@ -59,7 +59,7 @@ function reportDom(element) {
 	document.body.appendChild(elem);
 
 	document.getElementById('cb-report__close').addEventListener('click', closeReport);
-	document.getElementById('cb-report__send').addEventListener('click', closeReport);
+	document.getElementById('cb-report__send').addEventListener('click', sendReport);
 }
 
 function closeReport() {
@@ -69,6 +69,23 @@ function closeReport() {
 	popup.remove();
 }
 
+function sendReport() {
+	var miInit = {
+		method: 'POST',
+		headers:{
+			'Content-Type': 'application/json'
+		}
+		body: JSON.stringify(report),
+		mode: 'cors',
+	};
+
+	fetch('https://example.com/report', miInit)
+		.then(function(response) {
+			console.log(response);
+		})
+		.catch(function(err) {
+			console.error(err);
+		});
 
 // Utils
 function addClass(el, className) {
