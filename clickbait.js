@@ -3,8 +3,8 @@ const API_URL = 'https://us-central1-free-the-fish.cloudfunctions.net';
 
 let report = {};
 
-// window._cbStart = selectClickbaits
-selectClickbaits();
+window._cbStart = selectClickbaits
+// selectClickbaits();
 
 window.log = console.log;
 
