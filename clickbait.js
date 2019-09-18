@@ -1,13 +1,12 @@
-// const version = 5;
-// console.log('Clicbait prevention enabled. v'+ version);
 const titleSelectors = 'article';
+const API_URL = 'https://us-central1-free-the-fish.cloudfunctions.net';
+
+let report = {};
 
 // window._cbStart = selectClickbaits
 selectClickbaits();
-window.log = function(a) {
-	console.log('a');
-	console.log(a);
-}
+
+window.log = console.log;
 
 function selectClickbaits() {
     //You can play with your DOM here or check URL against your regex
@@ -25,6 +24,17 @@ function setSpoiler(event) {
 	addClass(event.target, 'cb-reporting');
 
 	reportDom(event.target);
+
+	// Set report var URL
+	console.log(event);
+	console.log(event.path);
+	for (var i = 0; i < event.path.length; i++) {
+		var item = event.path[i];
+		if (item.tagName === 'A') {
+			report.url = item.href;
+			break;
+		}
+	}
 
 	var titles = document.querySelectorAll(titleSelectors);
     for (var i = 0; i < titles.length; i++) {
@@ -53,7 +63,7 @@ function reportDom(element) {
 	elem.innerHTML += '<img src="https://ph-files.imgix.net/c0fb6382-09b4-4f92-a279-6345227cc9e1?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=48&fit=max&dpr=2" />';
 	elem.innerHTML += '<h5>Reportar clickbait</h5>';
 	elem.innerHTML += '<p>También puedes añadir el spoiler, si quieres</p>';
-	elem.innerHTML += '<textarea placeholder="Escribe aquí el spoiler"></textarea><br>';
+	elem.innerHTML += '<textarea placeholder="Escribe aquí el spoiler" id="cb-report__textarea"></textarea><br>';
 	elem.innerHTML += '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="cb-report__send">Reportar</button>';
 	
 	document.body.appendChild(elem);
@@ -70,22 +80,29 @@ function closeReport() {
 }
 
 function sendReport() {
+	
+	report.spoiler = document.getElementById('cb-report__textarea').value || null;
+
 	var miInit = {
 		method: 'POST',
 		headers:{
 			'Content-Type': 'application/json'
-		}
+		},
 		body: JSON.stringify(report),
 		mode: 'cors',
 	};
 
-	fetch('https://example.com/report', miInit)
+	fetch(API_URL + '/report', miInit)
 		.then(function(response) {
 			console.log(response);
+			report = {};
 		})
 		.catch(function(err) {
 			console.error(err);
 		});
+
+	closeReport();
+}
 
 // Utils
 function addClass(el, className) {
