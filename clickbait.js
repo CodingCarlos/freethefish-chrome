@@ -3,13 +3,13 @@ const API_URL = 'https://us-central1-free-the-fish.cloudfunctions.net';
 
 let report = {};
 
-window._cbStart = selectClickbaits
+window._cbStart = selectClickbaits;
 // selectClickbaits();
 
 window.log = console.log;
 
 function selectClickbaits() {
-    //You can play with your DOM here or check URL against your regex
+    // You can play with your DOM here or check URL against your regex
     var titles = document.querySelectorAll(titleSelectors)
 
     for (var i = 0; i < titles.length; i++) {
@@ -26,8 +26,6 @@ function setSpoiler(event) {
 	reportDom(event.target);
 
 	// Set report var URL
-	console.log(event);
-	console.log(event.path);
 	for (var i = 0; i < event.path.length; i++) {
 		var item = event.path[i];
 		if (item.tagName === 'A') {
@@ -127,12 +125,11 @@ var initX, initY, firstX, firstY, object;
 
 function draggable(dragMe, handler) {
 	object = dragMe;
-
 	handler.addEventListener('mousedown', function(e) {
 		e.preventDefault();
 
-		initX = this.offsetLeft;
-		initY = this.offsetTop;
+		initX = object.offsetLeft;
+		initY = object.offsetTop;
 		firstX = e.pageX;
 		firstY = e.pageY;
 
@@ -141,7 +138,6 @@ function draggable(dragMe, handler) {
 		window.addEventListener('mouseup', function() {
 			handler.removeEventListener('mousemove', dragIt, false);
 		}, false);
-
 	}, false);
 }
 
