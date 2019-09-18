@@ -1,28 +1,79 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
-html {
-    height: auto;
-}
-
 .fish-body {
 /*    background: #f5f5f5;*/
     background: #fff;
+    margin: 0px;
     width: 320px;
 }
 
-p, h1, h2 {
+.fish-body p, 
+.fish-body h1,
+.fish-body h2 {
     line-height: 1.4rem;
 }
 
-h5 {
+.fish-body h5 {
     margin: 6px 0px;
     font-weight: bold;
 }
 
-*:focus, *:active {
+.fish-body *:focus,
+.fish-body *:active {
     outline: none;
 }
 
+.fish-body button {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: black;
+    margin-bottom: 16px;
+    min-height: 16px;
+    width: 100%;
+}
+
+.fish-body img {
+    max-width: 100%;
+}
+
+.fish-body .no-bg {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 8px;
+}
+
+/* MDL custom */
+.fish-body .mdl-switch.is-checked .mdl-switch__track {
+    background: rgba(1, 174, 224, .5);
+}
+
+.fish-body .mdl-switch.is-checked .mdl-switch__thumb {
+    background: #01AEE0;
+}
+
+.fish-body .mdl-switch {
+    width: 24px;
+    right: 32px;
+    position: absolute;
+}
+
+.fish-body .mdl-switch__label {
+    position: absolute;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    left: 28px;
+    text-align: left;   
+}
+
+
+/* ------------------------ */
+/* --- INJECTED IN PAGE --- */
+/* ------------------------ */
 .baited:hover {
 	/* background-color: red !important; */
     background: #D3E1E5;
@@ -32,61 +83,31 @@ h5 {
     transition: all .2s ease-in-out;
 }
 
-img {
-    max-width: 100%;
-}
-
-button {
-    border-radius: 8px;
-    min-height: 16px;
-    width: 100%;
-    border: none;
-    color: black;
-    box-sizing: border-box;
-    margin-bottom: 16px;
-}
-
-.section {
-/*    border-radius: 8px;*/
-    /* border: 1px solid #eaeaea; */
-    border-top: 1px solid #eaeaea;
-    margin-bottom: 8px;
-    padding: 16px;
-    /* background: white; */
-    /* box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.05) /* border-bottom: 1px solid #e4e4e4; */
-}
-
-.no-bg {
-    background: transparent;
-    box-shadow: none;
-    border: none;
-    padding: 8px;
-}
-
 .cb-reporting {
-	background-color: #AED8E4;
+    background-color: #AED8E4;
 }
 
 .cb-report {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 300px;
-	height: 180px;
     background-color: #FFFFFF;
+    border: 1px solid #eaeaea;
     border-radius: 8px;
-    padding: 16px 16px 31px;
     box-shadow: 0px 4px 24px 8px rgba(0,0,0,0.1);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px 0px;
-    z-index: 999;
-    height: auto;
     box-sizing: border-box;
-    border: 1px solid #eaeaea;
+    height: auto;
+    /*height: 180px;*/
+    left: 50%;
+    padding: 16px 16px 31px;
+    position: absolute;
+    text-align: left;
+    top: 50%;
+    width: 300px;
+    z-index: 999;
 }
 
     .cb-report textarea {
         padding: 8px;
-        margin: 8px 0px;
+        margin: 12px 0px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -130,6 +151,7 @@ button {
         line-height: 36px;
         vertical-align: middle;
         background: #01AEE0;
+        width: 100%;
     }
 
     .cb-report button:hover {
@@ -147,34 +169,4 @@ button {
 	right: 16px;
 	top: 16px;
 	cursor: pointer;
-}
-
-textarea {
-    margin: 16px 0px;
-    width: 80%;
-}
-
-/* MDL custom */
-.mdl-switch.is-checked .mdl-switch__track {
-    background: rgba(1, 174, 224, .5);
-}
-
-.mdl-switch.is-checked .mdl-switch__thumb {
-    background: #01AEE0;
-}
-
-.mdl-switch {
-    width: 24px;
-    right: 32px;
-    position: absolute;
-}
-
-.mdl-switch__label {
-    position: absolute;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 24px;
-    margin: 0;
-    left: 28px;
-    text-align: left;   
 }
