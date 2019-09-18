@@ -60,6 +60,7 @@ function reportDom(element) {
 	elem.style.cssText = 'top:'+ (offsetY + 32) +'px; left:'+ offsetX +'px;';
 	elem.className = 'cb-report';
 	elem.appendChild(close);
+	elem.innerHTML += '<div id="cb-report__moveme"></div>';
 	elem.innerHTML += '<img src="https://ph-files.imgix.net/c0fb6382-09b4-4f92-a279-6345227cc9e1?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=48&fit=max&dpr=2" />';
 	elem.innerHTML += '<h5>Reportar clickbait</h5>';
 	elem.innerHTML += '<p>También puedes añadir el spoiler, si quieres</p>';
@@ -71,7 +72,7 @@ function reportDom(element) {
 	document.getElementById('cb-report__close').addEventListener('click', closeReport);
 	document.getElementById('cb-report__send').addEventListener('click', sendReport);
 
-	draggable(elem);
+	draggable(elem, document.getElementById('cb-report__moveme'));
 }
 
 function closeReport() {
@@ -122,10 +123,12 @@ function removeClass(el, className) {
 
 
 // DRAGGABLE
-var initX, initY, firstX, firstY;
+var initX, initY, firstX, firstY, object;
 
-function draggable(object) {
-	object.addEventListener('mousedown', function(e) {
+function draggable(dragMe, handler) {
+	object = dragMe;
+
+	handler.addEventListener('mousedown', function(e) {
 		e.preventDefault();
 
 		initX = this.offsetLeft;
@@ -136,13 +139,13 @@ function draggable(object) {
 		this.addEventListener('mousemove', dragIt, false);
 
 		window.addEventListener('mouseup', function() {
-			object.removeEventListener('mousemove', dragIt, false);
+			handler.removeEventListener('mousemove', dragIt, false);
 		}, false);
 
 	}, false);
 }
 
 function dragIt(e) {
-	this.style.left = initX+e.pageX-firstX + 'px';
-	this.style.top = initY+e.pageY-firstY + 'px';
+	object.style.left = initX+e.pageX-firstX + 'px';
+	object.style.top = initY+e.pageY-firstY + 'px';
 }
