@@ -84,7 +84,7 @@
     position: absolute;
     height: 100px;
     width: 50%;
-    background: red;
+    background-image: url(/img/clickbait.png) no-repeat 50%;
     content: '';
 }
 
