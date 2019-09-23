@@ -80,6 +80,14 @@
 /* ------------------------ */
 /* --- INJECTED IN PAGE --- */
 /* ------------------------ */
+.has-clickbait:before {
+    position: absolute;
+    height: 100px;
+    width: 50%;
+    background: red;
+    content: '';
+}
+
 .baited:hover {
 	/* background-color: red !important; */
     background: #D3E1E5;
