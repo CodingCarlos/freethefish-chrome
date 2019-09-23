@@ -1,22 +1,56 @@
-const titleSelectors = 'article';
 const API_URL = 'https://us-central1-free-the-fish.cloudfunctions.net';
+const titleSelectors = 'article';
+const titleLinkSelectors = 'a h2, h2 a, a h3, h3 a';
 
 let report = {};
 
-window._cbStart = selectClickbaits;
-// selectClickbaits();
+window._cbStart = addClickbait;
+
+selectClickbaits();
 
 window.log = console.log;
 
 function selectClickbaits() {
-    // You can play with your DOM here or check URL against your regex
-    var titles = document.querySelectorAll(titleSelectors)
+	var links = document.querySelectorAll(titleLinkSelectors)
+	var curatedLinks = [];
 
-    for (var i = 0; i < titles.length; i++) {
-    	var title = titles[i];
-    	addClass(title, 'baited');
-    	title.addEventListener('click', setSpoiler);
-    }
+	for (var i = 0; i < links.length; i++) {
+		if (links[i].tagName !== 'A') {
+			curatedLinks[i] = getParentLink(links[i]);
+		} else {
+			curatedLinks[i] = links[i];
+		}
+	}
+
+	console.log(curatedLinks);
+	curatedLinks.forEach(link => {
+		console.log('Wololooooo');
+		addClass(link, 'has-clickbait');
+	});
+} 
+
+function getParentLink(elem) {
+	let parent = elem.parentElement;
+	if (parent === null) {
+		return elem;
+	}
+
+	if (parent.tagName.toUpperCase() === 'A') {
+		return parent;
+	}
+
+	return getParentLink(parent);
+}
+
+function addClickbait() {
+	// You can play with your DOM here or check URL against your regex
+	var titles = document.querySelectorAll(titleSelectors)
+
+	for (var i = 0; i < titles.length; i++) {
+		var title = titles[i];
+		addClass(title, 'baited');
+		title.addEventListener('click', setSpoiler);
+	}
 }
 
 function setSpoiler(event) {
@@ -35,19 +69,19 @@ function setSpoiler(event) {
 	}
 
 	var titles = document.querySelectorAll(titleSelectors);
-    for (var i = 0; i < titles.length; i++) {
-    	var title = titles[i];
+	for (var i = 0; i < titles.length; i++) {
+		var title = titles[i];
 		removeClass(title, 'baited');
 		title.removeEventListener('click', setSpoiler);
-    }
+	}
 }
 
 
 function reportDom(element) {
 	var bodyRect = document.body.getBoundingClientRect(),
-	    elemRect = element.getBoundingClientRect(),
-	    offsetY = elemRect.top - bodyRect.top,
-	    offsetX = elemRect.left - bodyRect.left;
+		elemRect = element.getBoundingClientRect(),
+		offsetY = elemRect.top - bodyRect.top,
+		offsetX = elemRect.left - bodyRect.left;
 
 	var close = document.createElement('a');
 	close.innerText = 'x';
