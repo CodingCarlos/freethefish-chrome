@@ -1,7 +1,7 @@
 # Free the Fish
 This extension protects you from lousy media content when surfing the web, blocking phony headlines and bot-written articles. Our goal with this project is to free the internet from clickbait, a shameful practice used by news media to generate traffic on their webpages.
 
-# What you can do with it
+# Why use it?
 
 ## Detect clickbait headlines
 Turn it on and never fall for the bait anymore. All clickbait-y content will be spotted on the page you are on. 
@@ -9,8 +9,8 @@ Turn it on and never fall for the bait anymore. All clickbait-y content will be 
 ## Read spoilers written by the community
 You can't help but wondering what is "THE ULTIMATE THING to wake up in great shape EVERY DAY"? With some chance, another user already read it and spoiled it for you to save you the reading time!
 
-## Make the web a better place
-We need a big community if we want to make a stand. You can use this extension as a read-only but you can also help make it better by:
+## Make the web a better place 💪
+If we want to make a stand, we need a big community. Be part of it and:
 
 ### Report clickbait
 See a typical clickbait headline? Report it and it will be added to a public ranking with media that get shamed most frequently.
