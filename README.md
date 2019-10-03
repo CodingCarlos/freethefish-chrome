@@ -32,9 +32,9 @@ chrome://extensions
 
 # Makers
 
-@CodingCarlos - backend
-@Ivoriginal - frontend & design
-@florafosset - design & communication
+- [@CodingCarlos](https://twitter.com/CodingCarlos) - backend
+- [@Ivoriginal](https://twitter.com/ivoriginal) - frontend & design
+- [@florafosset](https://twitter.com/florafosset) - design & communication
 
 
 # Next Steps
