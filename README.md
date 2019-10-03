@@ -1,6 +1,7 @@
+![freethefish](https://user-images.githubusercontent.com/22743273/66150837-51598100-e616-11e9-9a8c-6859d6dafff5.jpg)
+
 # Free the Fish
 This extension protects you from lousy media content when surfing the web, blocking phony headlines and bot-written articles. Our goal with this project is to free the internet from clickbait, a shameful practice used by news media to generate traffic on their webpages.
-![freethefish](https://user-images.githubusercontent.com/22743273/66150837-51598100-e616-11e9-9a8c-6859d6dafff5.jpg)
 
 # Why use it?
 
