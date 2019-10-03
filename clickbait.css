@@ -81,11 +81,16 @@
 /* --- INJECTED IN PAGE --- */
 /* ------------------------ */
 .has-clickbait:before {
-    position: absolute;
-    height: 100px;
-    width: 50%;
-    background-image: url(/img/clickbait.png) no-repeat 50%;
-    content: '';
+  position: absolute;
+  height: 100px;
+  width: 300px;
+  background: url('chrome-extension://kabnjhghkjjndlfjiigldmddfbkafehk/img/clickbait.png');
+  content: '';
+  background-size: cover;
+  background-repeat: none;
+  transform: rotate(24deg);
+  z-index: 999;
+  /*  margin-top: -8%;*/
 }
 
 .baited:hover {

@@ -10,6 +10,7 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
+  "web_accessible_resources": ["img/clickbait.png"],
 
   "content_security_policy": "script-src 'unsafe-inline' 'self' https://www.gstatic.com/ https://*.firebaseio.com https://code.getmdl.io https://www.googleapis.com; object-src 'self'; connect-src 'self' wss://*.firebaseio.com;",
   "content_scripts": [
