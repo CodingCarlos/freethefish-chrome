@@ -21,13 +21,38 @@ function selectClickbaits() {
 			curatedLinks[i] = links[i];
 		}
 	}
+	// console.log(curatedLinks);
 
-	console.log(curatedLinks);
-	curatedLinks.forEach(link => {
-		console.log('Wololooooo');
-		addClass(link, 'has-clickbait');
-	});
+	searchClickbait(curatedLinks)
 } 
+
+function searchClickbait(curatedLinks) {
+	let data = {
+		url: curatedLinks.map(link => link.href),
+	};
+
+	fetch(API_URL + '/test', {
+			method: 'PUT',
+			body: JSON.stringify(data),
+			headers: {
+				'Content-Type': 'application/json'
+			},
+		})
+		.then((response) => response.json())
+		.then(function(response) {
+			if (response.length > 0) {
+				response.forEach((item, index) => {
+					if (item !== null) {
+						addClass(curatedLinks[index], 'has-clickbait');
+						console.log(response[index]);
+					}
+				});
+			}
+		})
+		.catch(function(err) {
+			console.error(err);
+		});
+}
 
 function getParentLink(elem) {
 	let parent = elem.parentElement;
@@ -126,7 +151,8 @@ function sendReport() {
 		mode: 'cors',
 	};
 
-	fetch(API_URL + '/report', miInit)
+	fetch(API_URL + '/test', miInit)
+	// fetch(API_URL + '/report', miInit)
 		.then(function(response) {
 			console.log(response);
 			report = {};

@@ -101,6 +101,15 @@
     padding: 16px;
     transition: all .2s ease-in-out;
 }
+    .baited:hover:after {
+        background: rgba(255, 255, 255, .5);
+        border-radius: 4px;
+        content: 'Pulsa para reportar';
+        left: 8px;
+        padding: 4px 8px;
+        position: absolute;
+        top: 8px;
+    }
 
 .cb-reporting {
     background-color: #AED8E4;
