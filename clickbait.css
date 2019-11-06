@@ -163,7 +163,7 @@
         line-height: 1.4rem;
     }
 
-    .cb-report button {
+    .cb-report .button {
         background: 0 0;
         border: none;
         border-radius: 2px;
@@ -191,7 +191,7 @@
         width: 100%;
     }
 
-    .cb-report button:hover {
+    .cb-report .button:hover {
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 24px 8px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 8px 0px;
     }

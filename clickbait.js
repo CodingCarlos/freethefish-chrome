@@ -43,8 +43,7 @@ function searchClickbait(curatedLinks) {
 			if (response.length > 0) {
 				response.forEach((item, index) => {
 					if (item !== null) {
-						addClass(curatedLinks[index], 'has-clickbait');
-						console.log(response[index]);
+						setClickbait(curatedLinks[index], item.spoiler || '');
 					}
 				});
 			}
@@ -134,9 +133,48 @@ function reportDom(element) {
 
 function closeReport() {
 	const title = document.getElementsByClassName('cb-reporting')[0];
-	removeClass(title, 'cb-reporting');
+	if (title) removeClass(title, 'cb-reporting');
 	popup = document.getElementsByClassName('cb-report')[0];
 	popup.remove();
+}
+
+
+function alertHasSpoiler(event) {
+	event.preventDefault()
+	var element = event.target;
+	var bodyRect = document.body.getBoundingClientRect(),
+		elemRect = element.getBoundingClientRect(),
+		offsetY = elemRect.top - bodyRect.top,
+		offsetX = elemRect.left - bodyRect.left;
+
+	var close = document.createElement('a');
+	close.innerText = 'x';
+	close.className = 'cb-report__close';
+	close.setAttribute('id', 'cb-report__close');
+	
+	var href = element.href || '#';
+	var elem = document.createElement('div');
+	elem.style.cssText = 'top:'+ (offsetY + 32) +'px; left:'+ offsetX +'px;';
+	elem.className = 'cb-report';
+	elem.appendChild(close);
+	elem.innerHTML += '<div id="cb-report__moveme"></div>';
+	elem.innerHTML += '<img src="https://ph-files.imgix.net/c0fb6382-09b4-4f92-a279-6345227cc9e1?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=48&fit=max&dpr=2" />';
+	elem.innerHTML += '<h5>¿Seguro que quieres entrar?</h5>';
+	elem.innerHTML += '<p>El artículo ha sido reportado como clickbait con el siguiente spoiler:</p>';
+	elem.innerHTML += '<p>' + element.getAttribute('data-spoiler') + '</p>';
+	elem.innerHTML += '<a href="' + href + '" class="button" id="cb-report__send">Entrar de todas formas</a>';
+	
+	document.body.appendChild(elem);
+
+	document.getElementById('cb-report__close').addEventListener('click', closeReport);
+
+	draggable(elem, document.getElementById('cb-report__moveme'));
+}
+
+function setClickbait(element, spoiler) {
+	addClass(element, 'has-clickbait');
+	element.setAttribute('data-spoiler', spoiler);
+	element.addEventListener('click', alertHasSpoiler);
 }
 
 function sendReport() {
