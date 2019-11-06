@@ -120,7 +120,7 @@ function reportDom(element) {
 	elem.innerHTML += '<img src="https://ph-files.imgix.net/c0fb6382-09b4-4f92-a279-6345227cc9e1?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=48&fit=max&dpr=2" />';
 	elem.innerHTML += '<h5>Reportar clickbait</h5>';
 	elem.innerHTML += '<p>También puedes añadir el spoiler, si quieres</p>';
-	elem.innerHTML += '<textarea placeholder="Escribe aquí el spoiler" id="cb-report__textarea"></textarea><br>';
+	elem.innerHTML += '<textarea placeholder="Escribe aquí el spoiler (opcional)" id="cb-report__textarea"></textarea><br>';
 	elem.innerHTML += '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="cb-report__send">Reportar</button>';
 	
 	document.body.appendChild(elem);
