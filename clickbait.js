@@ -154,7 +154,10 @@ function sendReport() {
 	fetch(API_URL + '/test', miInit)
 	// fetch(API_URL + '/report', miInit)
 		.then(function(response) {
-			console.log(response);
+			let elem = document.querySelectorAll('a[href="' + report.url + '"]');
+			for (var i = 0; i < elem.length; i++) {
+				addClass(elem[i], 'has-clickbait');
+			}
 			report = {};
 		})
 		.catch(function(err) {
