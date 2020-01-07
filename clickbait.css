@@ -13,7 +13,7 @@
     padding: 16px;
 }
 
-.fish-body p, 
+.fish-body p,
 .fish-body h1,
 .fish-body h2 {
     line-height: 1.4rem;
@@ -73,7 +73,7 @@
     line-height: 24px;
     margin: 0;
     left: 28px;
-    text-align: left;   
+    text-align: left;
 }
 
 
@@ -104,7 +104,7 @@
     .baited:hover:after {
         background: rgba(255, 255, 255, .5);
         border-radius: 4px;
-        content: 'Pulsa para reportar';
+        content: 'Click to report';
         left: 8px;
         padding: 4px 8px;
         position: absolute;
