@@ -24,7 +24,7 @@ function selectClickbaits() {
 	// console.log(curatedLinks);
 
 	searchClickbait(curatedLinks)
-} 
+}
 
 function searchClickbait(curatedLinks) {
 	let data = {
@@ -111,7 +111,7 @@ function reportDom(element) {
 	close.innerText = 'x';
 	close.className = 'cb-report__close';
 	close.setAttribute('id', 'cb-report__close');
-	
+
 	var elem = document.createElement('div');
 	elem.style.cssText = 'top:'+ (offsetY + 32) +'px; left:'+ offsetX +'px;';
 	elem.className = 'cb-report';
@@ -119,10 +119,10 @@ function reportDom(element) {
 	elem.innerHTML += '<div id="cb-report__moveme"></div>';
 	elem.innerHTML += '<img src="https://ph-files.imgix.net/c0fb6382-09b4-4f92-a279-6345227cc9e1?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=48&fit=max&dpr=2" />';
 	elem.innerHTML += '<h5>Reportar clickbait</h5>';
-	elem.innerHTML += '<p>También puedes añadir el spoiler, si quieres</p>';
-	elem.innerHTML += '<textarea placeholder="Escribe aquí el spoiler (opcional)" id="cb-report__textarea"></textarea><br>';
-	elem.innerHTML += '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="cb-report__send">Reportar</button>';
-	
+	elem.innerHTML += '<p>You can also write a spoiler to save time for the next person</p>';
+	elem.innerHTML += '<textarea placeholder="Spoil here" id="cb-report__textarea"></textarea><br>';
+	elem.innerHTML += '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="cb-report__send">Report</button>';
+
 	document.body.appendChild(elem);
 
 	document.getElementById('cb-report__close').addEventListener('click', closeReport);
@@ -151,7 +151,7 @@ function alertHasSpoiler(event) {
 	close.innerText = 'x';
 	close.className = 'cb-report__close';
 	close.setAttribute('id', 'cb-report__close');
-	
+
 	var href = element.href || '#';
 	var elem = document.createElement('div');
 	elem.style.cssText = 'top:'+ (offsetY + 32) +'px; left:'+ offsetX +'px;';
@@ -163,7 +163,7 @@ function alertHasSpoiler(event) {
 	elem.innerHTML += '<p>El artículo ha sido reportado como clickbait con el siguiente spoiler:</p>';
 	elem.innerHTML += '<p>' + element.getAttribute('data-spoiler') + '</p>';
 	elem.innerHTML += '<a href="' + href + '" class="button" id="cb-report__send">Entrar de todas formas</a>';
-	
+
 	document.body.appendChild(elem);
 
 	document.getElementById('cb-report__close').addEventListener('click', closeReport);
