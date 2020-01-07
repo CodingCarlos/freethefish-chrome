@@ -208,3 +208,7 @@
 	cursor: pointer;
     z-index: 1001;
 }
+
+a {
+	color: black;
+}
