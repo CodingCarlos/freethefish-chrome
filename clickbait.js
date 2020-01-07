@@ -5,12 +5,34 @@ const titleLinkSelectors = 'a h2, h2 a, a h3, h3 a';
 let report = {};
 
 window._cbStart = addClickbait;
+window._cbSelect = selectClickbaits;
 
-selectClickbaits();
+chrome.storage.local.get(['alertMode'], function (data) {
+    console.log(data);
+    selectClickbaits(data.alertMode);
+});
 
 window.log = console.log;
 
-function selectClickbaits() {
+chrome.runtime.onConnect.addListener((port) => {
+	port.onMessage.addListener((msg) => {
+		if (msg.function == 'html') {
+			console.log('hehehehehe');
+			port.postMessage({ 
+				html: document.documentElement.outerHTML,
+				description: document.querySelector("meta[name=\'description\']").getAttribute('content'),
+				title: document.title,
+			});
+		}
+	});
+});
+
+function selectClickbaits(shallSelect) {
+	if (shallSelect !== true) {
+		console.log('Clickbait reporting disabled ^^');
+		return false;
+	}
+
 	var links = document.querySelectorAll(titleLinkSelectors)
 	var curatedLinks = [];
 
