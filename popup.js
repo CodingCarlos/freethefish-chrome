@@ -13,10 +13,10 @@ window.onload = function() {
     		check.MaterialSwitch.on();
     	}
 
-        if (data.reportMode === false) {
-            report.MaterialSwitch.off();
-        } else {
+        if (data.reportMode === true) {
             report.MaterialSwitch.on();
+        } else {
+            report.MaterialSwitch.off();
         }
 
     	scripts();
