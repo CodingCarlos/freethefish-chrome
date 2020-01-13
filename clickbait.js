@@ -4,31 +4,39 @@ const titleLinkSelectors = 'a h2, h2 a, a h3, h3 a';
 
 let report = {};
 
-window._cbStart = addClickbait;
-window._cbSelect = selectClickbaits;
-
+// Alert Mode init
 chrome.storage.local.get(['alertMode'], function (data) {
-    console.log(data);
     selectClickbaits(data.alertMode);
 });
 
-window.log = console.log;
-
+// Message reciever
 chrome.runtime.onConnect.addListener((port) => {
+	// Add meesage listener
 	port.onMessage.addListener((msg) => {
-		if (msg.function == 'html') {
-			console.log('hehehehehe');
+		if (msg.function === 'html') {
 			port.postMessage({ 
 				html: document.documentElement.outerHTML,
 				description: document.querySelector("meta[name=\'description\']").getAttribute('content'),
 				title: document.title,
 			});
+		} else if (msg.function === 'startReporting') {
+			console.log('START REPORTING!');
+			addClickbait();
+		} else if (msg.function === 'stopReporting') {
+			removeReportingHover();
+			closeReport();
+		} else if (msg.function === 'startAlerting') {
+			// START ALERTING MODE
+		} else if (msg.function === 'stopAlerting') {
+			// STOP ALERTING MODE
+		} else {
+			console.log('Unknown message: ', msg);
 		}
 	});
 });
 
 function selectClickbaits(shallSelect) {
-	if (shallSelect !== true) {
+	if (shallSelect === false) {
 		console.log('Clickbait reporting disabled ^^');
 		return false;
 	}
@@ -43,7 +51,6 @@ function selectClickbaits(shallSelect) {
 			curatedLinks[i] = links[i];
 		}
 	}
-	// console.log(curatedLinks);
 
 	searchClickbait(curatedLinks)
 }
@@ -114,6 +121,10 @@ function setSpoiler(event) {
 		}
 	}
 
+	removeReportingHover();
+}
+
+function removeReportingHover() {
 	var titles = document.querySelectorAll(titleSelectors);
 	for (var i = 0; i < titles.length; i++) {
 		var title = titles[i];
@@ -154,10 +165,18 @@ function reportDom(element) {
 }
 
 function closeReport() {
+	// Send a "stop reporting" message
+	chrome.runtime.onConnect.addListener((port) => {
+		port.postMessage('stopReporting');
+	});
+	// chrome.storage.local.set({ reportMode: false });
+
 	const title = document.getElementsByClassName('cb-reporting')[0];
 	if (title) removeClass(title, 'cb-reporting');
 	popup = document.getElementsByClassName('cb-report')[0];
-	popup.remove();
+	if (popup) {
+		popup.remove();
+	}
 }
 
 
