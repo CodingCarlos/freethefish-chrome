@@ -1,5 +1,5 @@
 const API_URL = 'https://us-central1-free-the-fish.cloudfunctions.net';
-const titleSelectors = 'article';
+const titleSelectors = 'article, h2';
 const titleLinkSelectors = 'a h2, h2 a, a h3, h3 a';
 
 let report = {};
@@ -14,7 +14,7 @@ chrome.runtime.onConnect.addListener((port) => {
 	// Add meesage listener
 	port.onMessage.addListener((msg) => {
 		if (msg.function === 'html') {
-			port.postMessage({ 
+			port.postMessage({
 				html: document.documentElement.outerHTML,
 				description: document.querySelector("meta[name=\'description\']").getAttribute('content'),
 				title: document.title,
