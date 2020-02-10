@@ -202,7 +202,7 @@ function alertHasSpoiler(event) {
 	elem.innerHTML += '<img src="https://ph-files.imgix.net/c0fb6382-09b4-4f92-a279-6345227cc9e1?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=48&fit=max&dpr=2" />';
 	elem.innerHTML += '<h5>¿Seguro que quieres entrar?</h5>';
 	elem.innerHTML += '<p>El artículo ha sido reportado como clickbait con el siguiente spoiler:</p>';
-	elem.innerHTML += '<p>' + element.getAttribute('data-spoiler') + '</p>';
+	elem.innerHTML += '<p class="cb-report__spoiler">' + element.getAttribute('data-spoiler') + '</p>';
 	elem.innerHTML += '<a href="' + href + '" class="button" id="cb-report__send">Entrar de todas formas</a>';
 
 	document.body.appendChild(elem);

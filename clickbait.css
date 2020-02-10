@@ -201,6 +201,10 @@
         max-width: 72px;
     }
 
+.cb-report__spoiler {
+    padding: 12px 0;
+}
+
 .cb-report__close {
 	position: absolute;
 	right: 16px;
