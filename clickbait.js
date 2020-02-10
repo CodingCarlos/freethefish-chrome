@@ -1,4 +1,4 @@
-const API_URL = 'https://us-central1-free-the-fish.cloudfunctions.net';
+const API_URL = 'https://freethefish.commitsans.com';
 const titleSelectors = 'article';
 const titleLinkSelectors = 'a h2, h2 a, a h3, h3 a';
 
